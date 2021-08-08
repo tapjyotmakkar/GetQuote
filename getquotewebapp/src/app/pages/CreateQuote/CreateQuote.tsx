@@ -71,19 +71,19 @@ export function CreateQuote() {
                             <div className="col-md-6">
                                 <label className="required-field">First Name</label>
                                 <input className="form-control" placeholder="First Name" autoFocus
-                                    {...register("firstName", { required: true })} />
+                                    {...register("firstName", { required: true })} data-testid="text-firstName"/>
                                 {errors.firstName?.type === 'required' && <span className="text-danger">First name is required</span>}
                             </div>
                             <div className="col-md-6">
                                 <label className="required-field">Last Name</label>
-                                <input className="form-control" placeholder="Last Name" {...register("lastName", { required: true })} />
+                                <input className="form-control" placeholder="Last Name" {...register("lastName", { required: true })} data-testid="text-lastName"/>
                                 {errors.lastName?.type === 'required' && <span className="text-danger">Last name is required</span>}
                             </div>
                         </div>
                         <div className="row p-2">
                             <div className="col-md-12">
                                 <label>Email</label>
-                                <input type="email" className="form-control" id="email" placeholder="Email" {...register("email")} />
+                                <input type="email" className="form-control" id="email" placeholder="Email" {...register("email")} data-testid="text-email"/>
                             </div>
                         </div>
                         <div className="row pt-2 pb-4">
@@ -95,14 +95,17 @@ export function CreateQuote() {
                                 </select>
                             </div>
                             <div className="col-md-11">
-                                <input type="text" className="form-control" id="phone" {...register("phone")} />
+                                <input type="text" className="form-control" id="phone" {...register("phone")} data-testid="text-phone"/>
                             </div>
                         </div>
                         <div className="border bg-light">
                             <div className="row pt-2">
                                 <div className="col-md-6">
                                     <label className="required-field">From Currency</label>
-                                    <select className="form-control form-select" {...register('fromCurrency')} value={fromCurrency?.symbol} onChange={(event) => setFromCurrency(fromCurrencies.filter(x => x.symbol === event.target.value)[0])}>
+                                    <select className="form-control form-select" 
+                                    {...register('fromCurrency')} value={fromCurrency?.symbol} 
+                                    onChange={(event) => setFromCurrency(fromCurrencies.filter(x => x.symbol === event.target.value)[0])}
+                                    data-testid="select-fromCurrency">
                                         {fromCurrencies && fromCurrencies.map((curr) => (
                                             <option value={curr.symbol}>{curr.name} ({curr.symbol})</option>
                                         ))}
@@ -111,7 +114,10 @@ export function CreateQuote() {
                                 </div>
                                 <div className="col-md-6">
                                     <label className="required-field">To Currency</label>
-                                    <select id="inputState" className="form-control form-select" {...register("toCurrency")} value={toCurrency?.symbol} onChange={(event) => setToCurrency(toCurrencies.filter(x => x.symbol === event.target.value)[0])}>
+                                    <select id="inputState" className="form-control form-select" 
+                                    {...register("toCurrency")} value={toCurrency?.symbol} 
+                                    onChange={(event) => setToCurrency(toCurrencies.filter(x => x.symbol === event.target.value)[0])}
+                                    data-testid="select-toCurrency">
                                         {toCurrencies && toCurrencies.map((curr) => (
                                             <option value={curr.symbol}>{curr.name} ({curr.symbol})</option>
                                         ))}
@@ -121,14 +127,14 @@ export function CreateQuote() {
                             <div className="row pt-2">
                                 <div className="col-md-6">
                                     <label className="required-field">Amount</label>
-                                    <input type="number" step=".01" className="form-control" {...register("amount", { required: true })} />
+                                    <input type="number" step=".01" className="form-control" {...register("amount", { required: true })} data-testid="text-amount"/>
                                     {errors.amount?.type === 'required' && <span className="text-danger">Amount is required</span>}
                                 </div>
                             </div>
                             <div className="row pt-4 pb-4">
                                 <div className="col-md-12 text-center">
                                     <button className="roundedButton btn btn-primary m-4" onClick={() => { resetForm() }}>RESET</button>
-                                    <button type="submit" className="roundedButton btn btn-primary">GET QUOTE</button>
+                                    <button type="submit" className="roundedButton btn btn-primary" data-testid="btn-getQuote">GET QUOTE</button>
                                 </div>
                             </div>
                             {error && (

@@ -34,3 +34,4 @@ Tests
 * Would have hosted the web api and UI as containers in a K8 cluster using AZURE ACS and AKS
 * Wanted to play around with react-hook-forms, else Formik with Material UI control library is a better way to do this using Dialogs and is a more elegant prod solution
 * CI/CD pipelines in github
+* have not implemented the phone country code dropdown
