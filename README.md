@@ -22,7 +22,7 @@ React UI backed by .NET Web API to stores and retrieves a currency conversion qu
 
 # UI
 * Open folder `getquotewebapp` in VSCode
-* machine would need to npm and node installed on it
+* machine would need npm and node installed on it
 * on terminal type `npm install`
 * then `npm start` and it should bring up UI on http://localhost:3000/
 
