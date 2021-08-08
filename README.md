@@ -1,5 +1,5 @@
 # GetQuote
-React UI baceked by .NET Web API to stores and retrieves a currency conversion quote
+React UI backed by .NET Web API to stores and retrieves a currency conversion quote
 
 # Tools and technology used
     .net core
